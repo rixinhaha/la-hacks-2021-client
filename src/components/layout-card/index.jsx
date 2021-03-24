@@ -7,10 +7,10 @@ const Card = styled.div`
     border-radius: 5px;
 `;
 
-const ContentCard = ({ children }) => (
+const LayoutCard = ({ children }) => (
   <Card>
     {children}
   </Card>
 );
 
-export default ContentCard;
+export default LayoutCard;

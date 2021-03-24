@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import ContentCard from '../components/content-card';
+import LayoutCard from '../components/layout-card';
 import style from './index.module.css';
 
 const { Header, Content, Footer } = Layout;
@@ -16,29 +16,29 @@ const MainContainer = () => (
       </Menu>
     </Header>
     <Content className={style.searchCard}>
-      <ContentCard>
+      <LayoutCard>
         test
-      </ContentCard>
+      </LayoutCard>
     </Content>
     <div className={style.postsWrapper}>
       <div className={style.postsCard}>
-        <ContentCard />
+        <LayoutCard />
       </div>
       <div className={style.postsCard}>
-        <ContentCard />
+        <LayoutCard />
       </div>
     </div>
     <Content className={style.widgetCard}>
-      <ContentCard>
+      <LayoutCard>
         test
-      </ContentCard>
+      </LayoutCard>
     </Content>
     <div className={style.postsWrapper}>
       <div className={style.postsCard}>
-        <ContentCard />
+        <LayoutCard />
       </div>
       <div className={style.postsCard}>
-        <ContentCard />
+        <LayoutCard />
       </div>
     </div>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
