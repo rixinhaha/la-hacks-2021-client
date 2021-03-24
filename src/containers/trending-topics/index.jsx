@@ -1,5 +1,5 @@
 import React from 'react';
 
-const TrendingTopics = () => (<div>test</div>);
+const TrendingTopics = () => (<div>cws</div>);
 
 export default TrendingTopics;
