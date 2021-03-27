@@ -1,21 +1,37 @@
-.searchCard {
-    margin-top: 84px;
-    padding: 0 50px;
-}
-
-.widgetCard {
-    margin-top: 24px;
-    padding: 0 50px;
-}
-
-.postsWrapper {
+.container {
+    height: 100%;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    padding: 0 50px;
-    margin-top: 24px;
+    flex-direction: column;
+    width: 1350px;
 }
 
-.postsCard {
-    width: calc((100%/2) - 15px);
+.contentWrapper {
+    padding: 16px
+}
+
+.searchTerm {
+    color: rgb(136, 153, 170);
+    margin-left: 20px;
+}
+
+.searchLabel {
+    font-size: 49px;
+    line-height: 1.2;
+    font-weight: 200;
+    color: #345;
+    margin-bottom: 32px;
+}
+
+.columnsWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }

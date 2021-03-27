@@ -1,0 +1,25 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px;
+    align-items: center;
+    background: transparent;
+}
+
+.brand {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.brand:hover {
+    color: #745fb5; 
+}
+
+.iconGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90px;
+}
