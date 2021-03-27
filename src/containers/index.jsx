@@ -1,47 +1,46 @@
-import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
-import LayoutCard from '../components/layout-card';
+/* eslint-disable max-len */
+import React from 'react';
+import { AiFillFire } from 'react-icons/ai';
+import Header from '../components/header';
+import HotContentCard from '../components/hot-content-card';
+import SectionHeader from '../components/section-header';
 import style from './index.module.css';
-import TrendingContainer from './trending-container';
-import SearchContainer from './search-container';
+import Sentiment from './sentiment';
+import SentimentBreakdown from './sentiment-breakdown';
+import WordContainer from './word-container';
 
-const { Header, Content, Footer } = Layout;
-
-const MainContainer = () => {
-  const [trendingTopics] = useState(['K-Pop', 'Jungkook', 'Blackpink']);
-
-  return (
-    <Layout>
-      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-          <Menu.Item key="1">nav 1</Menu.Item>
-          <Menu.Item key="2">nav 2</Menu.Item>
-          <Menu.Item key="3">nav 3</Menu.Item>
-        </Menu>
-      </Header>
-      <Content className={style.searchCard}>
-        <SearchContainer />
-      </Content>
-      <div className={style.postsWrapper}>
-        <div className={style.postsCard}>
-          <TrendingContainer topics={trendingTopics} />
-        </div>
-        <div className={style.postsCard}>
-          <LayoutCard />
-        </div>
-      </div>
-      <Content className={style.widgetCard} />
-      <div className={style.postsWrapper}>
-        <div className={style.postsCard}>
-          <TrendingContainer topics={trendingTopics} />
-        </div>
-        <div className={style.postsCard}>
-          <LayoutCard />
-        </div>
-      </div>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-    </Layout>
-  );
+export const PageStatus = {
+  INIT: 'init',
+  LOADING: 'loading',
+  ERROR: 'error',
+  SUCCESS: 'success',
 };
 
+const MainContainer = () => {
+  console.log('test');
+
+  return (
+    <div className={style.container}>
+      <Header />
+      <div className={style.contentWrapper}>
+        <h1 className={style.searchLabel}>
+          You Searched
+          <span className={style.searchTerm}>BTS</span>
+        </h1>
+        <div className={style.columnsWrapper}>
+          <div className={style.column}>
+            <Sentiment data={[{ value: 7.5 }]} />
+            <SentimentBreakdown />
+          </div>
+          <div className={style.column}>
+            <WordContainer />
+          </div>
+        </div>
+        <SectionHeader icon={<AiFillFire size={24} color="#FC6400" style={{ marginRight: 4 }} />} text="Top Buzz" />
+        <div><HotContentCard /></div>
+
+      </div>
+    </div>
+  );
+};
 export default MainContainer;
