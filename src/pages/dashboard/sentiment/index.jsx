@@ -1,6 +1,6 @@
 import React from 'react';
-import Sentimeter from '../../components/charts/sentimeter';
-import InfoCard from '../../components/info-card';
+import Sentimeter from '../../../components/charts/sentimeter';
+import InfoCard from '../../../components/info-card';
 import style from './index.module.css';
 
 const SentimentContainer = ({ data }) => (

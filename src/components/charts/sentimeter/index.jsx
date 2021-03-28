@@ -60,7 +60,7 @@ const Sentimeter = ({ data }) => {
       chart.scale('value', {
         min: 0,
         max: 9,
-        ticks: [2, 3.75, 5.25, 7],
+        ticks: [2, 4.5, 7],
       });
 
       chart.axis('1', false);
@@ -71,12 +71,9 @@ const Sentimeter = ({ data }) => {
           formatter: (val) => {
             if (val === '2') {
               return 'Negative';
-            } if (val === '3.75') {
-              return 'Neutral';
-            } if (val === '5.25') {
-              return 'Normal';
+            } if (val === '4.5') {
+              return 'Mixed';
             }
-
             return 'Positive';
           },
           style: {
@@ -97,16 +94,7 @@ const Sentimeter = ({ data }) => {
       // 绘制仪表盘刻度线
       chart.annotation().line({
         start: [3, 0.905],
-        end: [3.0035, 0.85],
-        style: {
-          stroke: '#ddd', // 线的颜色
-          lineDash: null, // 虚线的设置
-          lineWidth: 3,
-        },
-      });
-      chart.annotation().line({
-        start: [4.5, 0.905],
-        end: [4.5, 0.85],
+        end: [3.005, 0.85],
         style: {
           stroke: '#ddd', // 线的颜色
           lineDash: null, // 虚线的设置
@@ -115,8 +103,8 @@ const Sentimeter = ({ data }) => {
       });
 
       chart.annotation().line({
-        start: [6, 0.905],
-        end: [6.0035, 0.85],
+        start: [5.63, 0.905],
+        end: [5.63, 0.85],
         style: {
           stroke: '#ddd', // 线的颜色
           lineDash: null, // 虚线的设置
@@ -140,10 +128,10 @@ const Sentimeter = ({ data }) => {
       const val = data[0].value;
       const lineWidth = 18;
 
-      if (val >= 3) {
+      if (val >= 3.38) {
         chart.annotation().arc({
           start: [0, 1],
-          end: [3, 1],
+          end: [3.38, 1],
           style: {
             stroke: colors[0],
             lineWidth,
@@ -152,10 +140,10 @@ const Sentimeter = ({ data }) => {
         });
       }
 
-      if (val >= 4.5) {
+      if (val >= 5.63) {
         chart.annotation().arc({
           start: [3, 1],
-          end: [4.5, 1],
+          end: [5.63, 1],
           style: {
             stroke: colors[1],
             lineWidth,
@@ -164,45 +152,9 @@ const Sentimeter = ({ data }) => {
         });
       }
 
-      if (val >= 6) {
+      if (val >= 5.63) {
         chart.annotation().arc({
-          start: [4.5, 1],
-          end: [6, 1],
-          style: {
-            stroke: colors[2],
-            lineWidth,
-            lineDash: null,
-          },
-        });
-      }
-
-      if (val <= 3) {
-        chart.annotation().arc({
-          start: [0, 1],
-          end: [val, 1],
-          style: {
-            stroke: colors[0],
-            lineWidth,
-            lineDash: null,
-          },
-        });
-      }
-
-      if (val > 3 && val <= 4.5) {
-        chart.annotation().arc({
-          start: [3, 1],
-          end: [val, 1],
-          style: {
-            stroke: colors[1],
-            lineWidth,
-            lineDash: null,
-          },
-        });
-      }
-
-      if (val > 4.5 && val <= 6) {
-        chart.annotation().arc({
-          start: [4.5, 1],
+          start: [5.63, 1],
           end: [val, 1],
           style: {
             stroke: colors[2],
@@ -212,12 +164,24 @@ const Sentimeter = ({ data }) => {
         });
       }
 
-      if (val >= 6) {
+      if (val <= 3.38) {
         chart.annotation().arc({
-          start: [6, 1],
+          start: [0, 1],
           end: [val, 1],
           style: {
-            stroke: colors[3],
+            stroke: colors[0],
+            lineWidth,
+            lineDash: null,
+          },
+        });
+      }
+
+      if (val > 3.38 && val <= 5.63) {
+        chart.annotation().arc({
+          start: [3.38, 1],
+          end: [val, 1],
+          style: {
+            stroke: colors[1],
             lineWidth,
             lineDash: null,
           },

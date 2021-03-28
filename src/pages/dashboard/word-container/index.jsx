@@ -1,10 +1,10 @@
 import React from 'react';
-import WordCloud from '../../components/charts/word-cloud';
-import InfoCard from '../../components/info-card';
-import { mockWordCloudData1 } from '../mock';
+import WordCloud from '../../../components/charts/word-cloud';
+import InfoCard from '../../../components/info-card';
+
 import style from './index.module.css';
 
-const WordContainer = () => (
+const WordContainer = ({ data }) => (
   <InfoCard
     title="Word Cloud"
     subtitle="subtitle here"
@@ -14,7 +14,7 @@ const WordContainer = () => (
     }}
   >
     <div className={style.wrapper}>
-      <WordCloud data={mockWordCloudData1} />
+      <WordCloud data={data} />
     </div>
   </InfoCard>
 );

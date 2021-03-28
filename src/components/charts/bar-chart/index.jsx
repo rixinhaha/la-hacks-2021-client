@@ -5,34 +5,28 @@ import {
 } from '@antv/g2';
 import { colors } from '../const';
 
-const data = [
-  { sentiment: 'Negative', count: 70 },
-  { sentiment: 'Neutral', count: 10 },
-  { sentiment: 'Normal', count: 20 },
-  { sentiment: 'Positive', count: 14 },
-];
-
-const BarChart = ({ className }) => {
+const BarChart = ({ data }) => {
   const ref = React.useRef(null);
 
   let chart = null;
   useEffect(() => {
     chart = new Chart({
       container: ref.current,
-      height: 200,
+      height: 300,
       width: 500,
     });
 
     chart.data(data);
-    chart.scale('count', {
+    chart.scale('value', {
       tickCount: 0,
     });
     chart.coordinate().transpose();
     chart.tooltip({
       showMarkers: false,
+      showTitle: false,
     });
     chart.interaction('active-region');
-    chart.interval().position('sentiment*count').color('sentiment', `${colors.join('-')}`);
+    chart.interval().position('name*value').color('name', `${colors.join('-')}`);
     chart.render();
 
     return () => {
@@ -40,7 +34,7 @@ const BarChart = ({ className }) => {
     };
   }, [data]);
   return (
-    <div className={className} ref={ref} />
+    <div className={data} ref={ref} />
 
   );
 };

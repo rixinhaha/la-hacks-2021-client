@@ -37,17 +37,18 @@ registerShape('point', 'cloud', {
 });
 
 const WordCloud = ({ data }) => {
+  console.log(data);
   const ref = React.useRef(null);
 
   let chart = null;
   useEffect(() => {
     const dv = new DataSet.View().source(data);
-    const range = dv.range('value');
+    const range = dv.range('count');
     const min = range[0];
     const max = range[1];
     dv.transform({
       type: 'tag-cloud',
-      fields: ['x', 'value'],
+      fields: ['word', 'count'],
       size: [600, 300],
       font: 'Verdana',
       padding: 0,
@@ -68,6 +69,8 @@ const WordCloud = ({ data }) => {
       },
     });
 
+    console.log(dv.rows);
+
     if (!chart) {
       chart = new Chart({
         container: ref.current,
@@ -76,11 +79,11 @@ const WordCloud = ({ data }) => {
         height: 300,
         padding: 0,
       });
+      chart.data(dv.rows);
       chart.scale({
         x: { nice: false },
         y: { nice: false },
       });
-      chart.data(dv.rows);
 
       chart.legend(false);
 
@@ -94,7 +97,10 @@ const WordCloud = ({ data }) => {
         .position('x*y')
         .color('#738eda')
         .shape('cloud')
-        .tooltip('category');
+        .tooltip('count*word', (count, word) => ({
+          name: word,
+          value: `${count}`,
+        }));
       chart.interaction('element-active');
       chart.render();
     }

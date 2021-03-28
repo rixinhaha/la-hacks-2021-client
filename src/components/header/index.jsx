@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <nav className={style.nav}>
       <div><IoArrowBackOutline size={24} /></div>
-      <div className={style.brand}>UNOPINIONATED.IO</div>
+      <div className={style.brand}>SENTIMETER.IO</div>
       <div className={style.iconGroup}>
         <AiFillFacebook size={24} />
         <AiFillTwitterSquare size={24} />

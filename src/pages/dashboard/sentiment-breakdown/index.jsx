@@ -1,9 +1,9 @@
 import React from 'react';
-import BarChart from '../../components/charts/bar-chart';
-import InfoCard from '../../components/info-card';
+import BarChart from '../../../components/charts/bar-chart';
+import InfoCard from '../../../components/info-card';
 import style from './index.module.css';
 
-const SentimentBreakdown = () => (
+const SentimentBreakdown = ({ data }) => (
   <InfoCard
     title="Sentiment Breakdown"
     subtitle="subtitle here"
@@ -12,7 +12,7 @@ const SentimentBreakdown = () => (
     }}
   >
     <div className={style.wrapper}>
-      <BarChart />
+      <BarChart data={data} />
     </div>
   </InfoCard>
 );

@@ -12,11 +12,26 @@
 
 .searchTerm {
     color: rgb(136, 153, 170);
+    font-weight: 200;
     margin-left: 20px;
+    border: none;
+    background: none;
+    cursor: text;
+    font-size: 45px;
+    width: 800px
+
+}
+
+.searchTerm:focus{
+    outline: none;
+}
+
+.searchTerm::placeholder {
+    color: rgb(184, 187, 189);
 }
 
 .searchLabel {
-    font-size: 49px;
+    font-size: 45px;
     line-height: 1.2;
     font-weight: 200;
     color: #345;
