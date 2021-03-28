@@ -20,7 +20,7 @@ const SearchBox = ({ onSearch }) => {
     <div className={style.wrapper}>
       <span className={style.prefix}>sentimeter.io</span>
       <span className={style.sep}>/</span>
-      <input ref={ref} className={style.input} onKeyUp={handleKeyUp} name="q" type="text" placeHolder="Search..." />
+      <input ref={ref} className={style.input} onKeyUp={handleKeyUp} name="q" type="text" placeholder="Search..." />
       <FaSearch className={style.icon} onClick={handleClick} size={16} style={{ marginLeft: 10, marginRight: 20 }} />
     </div>
   );

@@ -37,7 +37,6 @@ registerShape('point', 'cloud', {
 });
 
 const WordCloud = ({ data }) => {
-  console.log(data);
   const ref = React.useRef(null);
 
   let chart = null;
@@ -68,8 +67,6 @@ const WordCloud = ({ data }) => {
         return 0;
       },
     });
-
-    console.log(dv.rows);
 
     if (!chart) {
       chart = new Chart({

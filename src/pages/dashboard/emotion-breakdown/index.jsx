@@ -1,5 +1,5 @@
 import React from 'react';
-import BubbleChart from '../../../components/charts/bubble-chart';
+import PieChart from '../../../components/charts/pie-chart';
 import InfoCard from '../../../components/info-card';
 import style from './index.module.css';
 
@@ -13,7 +13,7 @@ const EmotionBreakdown = ({ data }) => (
     }}
   >
     <div className={style.wrapper}>
-      <BubbleChart data={data} />
+      <PieChart data={data} />
     </div>
   </InfoCard>
 );

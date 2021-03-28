@@ -31,11 +31,11 @@ const PieChart = ({ data }) => {
     chart
       .interval()
       .position('value')
-      .color('type')
-      .label('type*value', {
+      .color('name')
+      .label('name*value', {
         layout: { type: 'pie-spider' },
         labelHeight: 20,
-        content: (obj) => `${obj.type} (${obj.value})`,
+        content: (obj) => `${obj.name} (${obj.value}%)`,
         labelLine: {
           style: {
             lineWidth: 0.5,

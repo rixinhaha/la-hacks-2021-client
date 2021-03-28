@@ -1,26 +1,15 @@
-import React, { useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable max-len */
+import React from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 import s from './index.module.css';
 
 const HotContent = ({ redditContentList, twitterContentList }) => {
-  useEffect(() => {
-    const script = document.createElement('script');
-
-    script.src = '//embed.redditmedia.com/widgets/platform.js';
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   const twitterContentSplitIndex = twitterContentList.length / 2;
 
   // eslint-disable-next-line max-len
-  const renderTwitterContentList = (tweetIdList) => tweetIdList.map((id) => <TwitterTweetEmbed key={id} options={{ height: 4000 }} tweetId={id} />);
+  const renderTwitterContentList = (tweetIdList) => tweetIdList.map((item) => <TwitterTweetEmbed key={item.id} options={{ height: 4000 }} tweetId={item.id} />);
 
   return (
     <div className={s.wrapper}>
@@ -28,7 +17,7 @@ const HotContent = ({ redditContentList, twitterContentList }) => {
         {renderTwitterContentList(twitterContentList.slice(0, twitterContentSplitIndex))}
       </div>
       <div className={s.verticalWrapper}>
-        {redditContentList.map((url) => <a key={url} className="embedly-card" href={url}>Card</a>)}
+        {redditContentList.map(({ id }) => <a key={id} className="embedly-card" href={id}>Card</a>)}
       </div>
       <div className={s.verticalWrapper}>
         {renderTwitterContentList(twitterContentList.slice(twitterContentSplitIndex))}
