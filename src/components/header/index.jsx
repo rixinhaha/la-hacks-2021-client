@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import { AiFillFacebook, AiFillTwitterSquare, AiFillGithub } from 'react-icons/ai';
@@ -17,9 +18,13 @@ const Header = ({ onBack }) => (
     </div>
     <div className={style.brand}>SENTIMETER.IO</div>
     <div className={style.iconGroup}>
-      <AiFillFacebook size={24} />
-      <AiFillTwitterSquare size={24} />
-      <AiFillGithub size={24} />
+      <a target="_blank" href="https://www.facebook.com/" rel="noreferrer"><AiFillFacebook color="rgba(0, 0, 0, 0.85)" size={24} /></a>
+      <a target="_blank" href="https://twitter.com/" rel="noreferrer">
+        <AiFillTwitterSquare color="rgba(0, 0, 0, 0.85)" size={24} />
+      </a>
+      <a target="_blank" href="https://github.com/" rel="noreferrer">
+        <AiFillGithub color="rgba(0, 0, 0, 0.85)" size={24} />
+      </a>
     </div>
   </nav>
 );
