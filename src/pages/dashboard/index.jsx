@@ -13,6 +13,7 @@ import SentimentBreakdown from './sentiment-breakdown';
 import WordContainer from './word-container';
 import { getEmotion, getSentimentBreakDown, getSentimeterScore } from './transform';
 import Loading from '../../components/loading';
+import Error from '../../components/error';
 
 export const PageStatus = {
   INIT: 'init',
@@ -30,8 +31,8 @@ const Dashboard = () => {
   const [wordCloudData, setWordCloudData] = useState([]);
   const [sentimentBreakdownData, setSentimentBreakdownData] = useState([]);
   const [sentimeterData, setSentimeterData] = useState([{ value: 0 }]);
-  const [pageStatus, setPageStatus] = useState(PageStatus.INIT);
-  const [emotionData, setEmotionData] = useState(PageStatus.INIT);
+  const [pageStatus, setPageStatus] = useState(PageStatus.ERROR);
+  const [emotionData, setEmotionData] = useState([]);
 
   const getDashboardData = async (searchTerm) => {
     try {
@@ -47,7 +48,7 @@ const Dashboard = () => {
       setSentimentBreakdownData(sentimentBreakdown);
       setPageStatus(PageStatus.SUCCESS);
     } catch (error) {
-      console.log(error);
+      setPageStatus(PageStatus.ERROR);
     }
   };
 
@@ -71,34 +72,37 @@ const Dashboard = () => {
         </div>
       );
     }
-    return (
-      <div className={style.contentWrapper}>
-        <h1 className={style.searchLabel}>
-          You Searched
-          <input
-            value={inputVal}
-            onChange={(e) => {
-              setInputVal(e.target.value);
-            }}
-            onKeyUp={handleKeyUp}
-            className={style.searchTerm}
-            placeHolder="Search something..."
-          />
-        </h1>
-        <div className={style.columnsWrapper}>
-          <div className={style.column}>
-            <Sentiment data={sentimeterData} />
-            <SentimentBreakdown data={sentimentBreakdownData} />
+    if (pageStatus === PageStatus.SUCCESS) {
+      return (
+        <div className={style.contentWrapper}>
+          <h1 className={style.searchLabel}>
+            You Searched
+            <input
+              value={inputVal}
+              onChange={(e) => {
+                setInputVal(e.target.value);
+              }}
+              onKeyUp={handleKeyUp}
+              className={style.searchTerm}
+              placeHolder="Search something..."
+            />
+          </h1>
+          <div className={style.columnsWrapper}>
+            <div className={style.column}>
+              <Sentiment data={sentimeterData} />
+              <SentimentBreakdown data={sentimentBreakdownData} />
+            </div>
+            <div className={style.column}>
+              <WordContainer data={wordCloudData} />
+              <EmotionContainer data={emotionData} />
+            </div>
           </div>
-          <div className={style.column}>
-            <WordContainer data={wordCloudData} />
-            <EmotionContainer data={emotionData} />
-          </div>
+          <SectionHeader icon={<AiFillFire size={24} color="#FC6400" style={{ marginRight: 4 }} />} text="Top Buzz" />
+          <HotContent twitterContentList={twitterContentList} redditContentList={redditContentList} />
         </div>
-        <SectionHeader icon={<AiFillFire size={24} color="#FC6400" style={{ marginRight: 4 }} />} text="Top Buzz" />
-        <HotContent twitterContentList={twitterContentList} redditContentList={redditContentList} />
-      </div>
-    );
+      );
+    }
+    return <Error />;
   };
 
   return (
