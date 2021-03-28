@@ -42,6 +42,10 @@ const PieChart = ({ data }) => {
           },
         },
       })
+      .tooltip('name*value', (name, value) => ({
+        name,
+        value: `${value}%`,
+      }))
       .adjust('stack');
 
     chart.legend(false);

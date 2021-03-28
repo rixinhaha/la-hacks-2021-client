@@ -47,7 +47,6 @@
     outline: none;
 }
 
-.icon:hover  {
-    background: blue;
-    padding: 4px;
+.icon {
+    cursor: pointer;
 }

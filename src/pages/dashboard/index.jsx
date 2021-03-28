@@ -31,7 +31,7 @@ const Dashboard = () => {
   const [wordCloudData, setWordCloudData] = useState([]);
   const [sentimentBreakdownData, setSentimentBreakdownData] = useState([]);
   const [sentimeterData, setSentimeterData] = useState([{ value: 0 }]);
-  const [pageStatus, setPageStatus] = useState(PageStatus.ERROR);
+  const [pageStatus, setPageStatus] = useState(PageStatus.LOADING);
   const [emotionData, setEmotionData] = useState([]);
 
   const getDashboardData = async (searchTerm) => {

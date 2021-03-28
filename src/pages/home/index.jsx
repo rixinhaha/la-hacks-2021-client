@@ -14,7 +14,7 @@ const Home = () => {
     <div className={style.container}>
       <div className={style.contentWrapper}>
         <h1 className={style.mainHeader}>
-          Internet's opinion
+          see the internet's opinion
         </h1>
         <SearchBox onSearch={handleSearch} />
       </div>
