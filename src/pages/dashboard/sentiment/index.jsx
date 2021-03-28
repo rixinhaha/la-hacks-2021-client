@@ -6,7 +6,7 @@ import style from './index.module.css';
 const SentimentContainer = ({ data }) => (
   <InfoCard
     title="Sentimeter"
-    subtitle="* Neutral sentiment means the content may either be low-emotion or a balanced mix of positive and negative sentiment."
+    subtitle="Mixed sentiment means the content may either be low-emotion or a balanced mix of positive and negative sentiment."
     style={{
       width: 584,
       marginBottom: 30,

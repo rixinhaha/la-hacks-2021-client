@@ -1,12 +1,16 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import s from './index.module.css';
 
 const TopicCard = ({ topic }) => (
-  <div className={s.card}>
-    <h3 className={s.body}>
-      {topic}
-    </h3>
-  </div>
+  <a className={s.card} href={`/search/${topic}`}>
+    <div>
+      <h3 className={s.body}>
+        {topic}
+      </h3>
+    </div>
+  </a>
 );
 
 const TopicCardsList = ({ topics }) => {
@@ -15,11 +19,8 @@ const TopicCardsList = ({ topics }) => {
   );
 
   return (
-    <div>
-      <h3 className={s.title}>Trending Searches</h3>
-      <div className={s.container}>
-        {topics.map((item) => renderTopicCard(item))}
-      </div>
+    <div className={s.container}>
+      {topics.map((item) => renderTopicCard(item))}
     </div>
   );
 };
