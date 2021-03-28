@@ -7,7 +7,7 @@ export const computeAggregate = (scoreA, scoreB, validCount) => {
 
 export const getSentimeterScore = (redditBreakdown, twitterBreakdown) => {
   const validCount = redditBreakdown.valid_count + twitterBreakdown.valid_count;
-  return Math.round(computeAggregate(redditBreakdown.total_score, twitterBreakdown.total_score, validCount));
+  return parseFloat(computeAggregate(redditBreakdown.total_score, twitterBreakdown.total_score, validCount).toFixed(1));
 };
 
 export const getSentimentBreakDown = (redditBreakdown, twitterBreakdown) => {

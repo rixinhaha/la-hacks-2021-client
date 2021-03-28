@@ -140,10 +140,10 @@ const Sentimeter = ({ data }) => {
         });
       }
 
-      if (val >= 5.63) {
+      if (val >= 5.62) {
         chart.annotation().arc({
-          start: [3, 1],
-          end: [5.63, 1],
+          start: [3.38, 1],
+          end: [5.62, 1],
           style: {
             stroke: colors[1],
             lineWidth,
@@ -152,9 +152,9 @@ const Sentimeter = ({ data }) => {
         });
       }
 
-      if (val >= 5.63) {
+      if (val >= 5.62) {
         chart.annotation().arc({
-          start: [5.63, 1],
+          start: [5.62, 1],
           end: [val, 1],
           style: {
             stroke: colors[2],
@@ -176,7 +176,7 @@ const Sentimeter = ({ data }) => {
         });
       }
 
-      if (val > 3.38 && val <= 5.63) {
+      if (val > 3.38 && val <= 5.62) {
         chart.annotation().arc({
           start: [3.38, 1],
           end: [val, 1],
