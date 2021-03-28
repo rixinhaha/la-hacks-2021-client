@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const POP_POST_COUNT = 8;
-const API_ROOT = 'http://35.192.60.127';
+const API_ROOT = '34.70.35.195 ';
 const API_TWITTER_SEARCH = `${API_ROOT}/sentiment_search/twitter`;
 const API_REDDIT_SEARCH = `${API_ROOT}/sentiment_search/reddit`;
 

@@ -2,7 +2,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import SearchBox from '../../components/search-box';
-import TopicCardsList from '../../components/topic-cards-list';
 import style from './index.module.css';
 
 const Home = () => {
@@ -18,7 +17,6 @@ const Home = () => {
           Internet's opinion
         </h1>
         <SearchBox onSearch={handleSearch} />
-        <TopicCardsList topics={['test', 'test']} />
       </div>
     </div>
   );

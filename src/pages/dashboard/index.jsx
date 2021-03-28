@@ -12,6 +12,7 @@ import Sentiment from './sentiment';
 import SentimentBreakdown from './sentiment-breakdown';
 import WordContainer from './word-container';
 import { getEmotion, getSentimentBreakDown, getSentimeterScore } from './transform';
+import Loading from '../../components/loading';
 
 export const PageStatus = {
   INIT: 'init',
@@ -66,7 +67,7 @@ const Dashboard = () => {
     if (pageStatus === PageStatus.INIT || pageStatus === PageStatus.LOADING) {
       return (
         <div className={style.contentWrapper}>
-          loading
+          <Loading />
         </div>
       );
     }

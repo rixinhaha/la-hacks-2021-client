@@ -7,7 +7,7 @@ import style from './index.module.css';
 const WordContainer = ({ data }) => (
   <InfoCard
     title="Word Cloud"
-    subtitle="subtitle here"
+    subtitle="The word cloud shows the most frequently occurring words used in related content."
     style={{
       width: 700,
       marginBottom: 30,

@@ -6,7 +6,7 @@ import style from './index.module.css';
 const SentimentBreakdown = ({ data }) => (
   <InfoCard
     title="Sentiment Breakdown"
-    subtitle="subtitle here"
+    subtitle="The chart above shows the proportion of positive, neutral, and negative sentiment."
     style={{
       width: 584,
     }}
