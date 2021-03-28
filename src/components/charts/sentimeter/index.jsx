@@ -93,8 +93,8 @@ const Sentimeter = ({ data }) => {
 
       // 绘制仪表盘刻度线
       chart.annotation().line({
-        start: [3, 0.905],
-        end: [3.005, 0.85],
+        start: [3.38, 0.905],
+        end: [3.385, 0.85],
         style: {
           stroke: '#ddd', // 线的颜色
           lineDash: null, // 虚线的设置
@@ -103,8 +103,8 @@ const Sentimeter = ({ data }) => {
       });
 
       chart.annotation().line({
-        start: [5.63, 0.905],
-        end: [5.63, 0.85],
+        start: [5.62, 0.905],
+        end: [5.62, 0.85],
         style: {
           stroke: '#ddd', // 线的颜色
           lineDash: null, // 虚线的设置

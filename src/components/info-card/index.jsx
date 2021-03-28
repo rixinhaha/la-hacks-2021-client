@@ -13,7 +13,7 @@ const InfoCard = ({
       {subtitle
         ? (
           <div className={s.subTitle}>
-            subtitle
+            {subtitle}
           </div>
         )
         : <></>}
