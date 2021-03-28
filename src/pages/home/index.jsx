@@ -7,7 +7,7 @@ import style from './index.module.css';
 const Home = () => {
   const history = useHistory();
   const handleSearch = (searchTerm) => {
-    history.push(`/search/${searchTerm}`);
+    history.push(`/search/${encodeURI(searchTerm)}`);
   };
 
   return (

@@ -26,7 +26,7 @@ export const PageStatus = {
 const Dashboard = () => {
   const history = useHistory();
   const params = useParams();
-  const [inputVal, setInputVal] = useState(params.searchTerm);
+  const [inputVal, setInputVal] = useState(decodeURI(params.searchTerm));
   const [twitterContentList, setTwitterContentList] = useState([]);
   const [redditContentList, setRedditContentList] = useState([]);
   const [wordCloudData, setWordCloudData] = useState([]);
@@ -59,7 +59,6 @@ const Dashboard = () => {
 
   const handleKeyUp = (e) => {
     if (e.key === 'Enter') {
-      history.push(`/search/${e.target.value}`);
       setPageStatus(PageStatus.LOADING);
       getDashboardData(e.target.value);
     }
