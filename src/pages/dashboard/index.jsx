@@ -4,7 +4,7 @@ import { AiFillFire } from 'react-icons/ai';
 import { useParams, useHistory } from 'react-router-dom';
 import Header from '../../components/header';
 import SectionHeader from '../../components/section-header';
-import { fetchData } from '../../services';
+import { fetchData, fetchRelatedSearches } from '../../services';
 import EmotionContainer from './emotion-breakdown';
 import HotContent from './hot-content';
 import style from './index.module.css';
@@ -14,6 +14,7 @@ import WordContainer from './word-container';
 import { getEmotion, getSentimentBreakDown, getSentimeterScore } from './transform';
 import Loading from '../../components/loading';
 import Error from '../../components/error';
+import TopicCardsList from '../../components/topic-cards-list';
 
 export const PageStatus = {
   INIT: 'init',
@@ -32,14 +33,18 @@ const Dashboard = () => {
   const [sentimentBreakdownData, setSentimentBreakdownData] = useState([]);
   const [sentimeterData, setSentimeterData] = useState([{ value: 0 }]);
   const [pageStatus, setPageStatus] = useState(PageStatus.LOADING);
+
+  const [trendingSearchList, setTrendingSearchList] = useState([]);
   const [emotionData, setEmotionData] = useState([]);
 
   const getDashboardData = async (searchTerm) => {
     try {
       const { twitterData, redditData } = await fetchData(searchTerm);
+      const trendingSearches = await fetchRelatedSearches(searchTerm);
       const emotionBreakdown = getEmotion(redditData.emotions, twitterData.emotions);
       const sentimentBreakdown = getSentimentBreakDown(redditData.sentiment_breakdown, twitterData.sentiment_breakdown);
       const sentimeterScore = getSentimeterScore(redditData.sentimeter, twitterData.sentimeter);
+      setTrendingSearchList(trendingSearches.trends);
       setRedditContentList(redditData.buzz_list);
       setTwitterContentList(twitterData.buzz_list);
       setSentimeterData([{ value: sentimeterScore }]);
@@ -87,6 +92,7 @@ const Dashboard = () => {
               placeHolder="Search something..."
             />
           </h1>
+          <TopicCardsList topics={trendingSearchList} />
           <div className={style.columnsWrapper}>
             <div className={style.column}>
               <Sentiment data={sentimeterData} />

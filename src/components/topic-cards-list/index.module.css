@@ -24,18 +24,52 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-bottom: 16px;
 }
 
 .card {
     margin: 5px;
     display: inline-block;
-    border-radius: 2px;
-    background: #fff;
+    border-radius: 5px;
     box-shadow: 0 6px 8px rgb(85 102 119 / 3%), 0 1px 1px rgb(85 102 119 / 40%); 
 }
 
 .body {
     font-size: 16px;
     padding: 16px;
-    color: #345;
+    color: white;
+    font-weight: 200;
+    margin: 0;
+}
+
+.card:nth-of-type(3n+1) {
+    background: linear-gradient(
+        15deg
+        ,#745fb5,#9a6dbb);
+}
+
+.card:nth-of-type(3n+2)  {
+    background: linear-gradient(
+        15deg
+        ,#556677,#5e7683);
+}
+
+.card:nth-of-type(3n+3)  {
+    background: linear-gradient(
+        15deg
+        ,#14af83,#15b89a);
+}
+
+
+
+.card:nth-of-type(3n+1):hover {
+    background: #5f4aa1;
+}
+
+.card:nth-of-type(3n+2):hover {
+    background: #44525f;
+}
+
+.card:nth-of-type(3n+3):hover {
+    background: #108b68;
 }
