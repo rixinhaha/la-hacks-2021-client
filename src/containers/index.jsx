@@ -9,6 +9,7 @@ import Sentiment from './sentiment';
 import SentimentBreakdown from './sentiment-breakdown';
 import TrendingContainer from './trending-container';
 import WordContainer from './word-container';
+import LoadingContainer from './loading-container';
 
 export const PageStatus = {
   INIT: 'init',
@@ -28,6 +29,7 @@ const MainContainer = () => {
           You searched
           <span className={style.searchTerm}>BTS</span>
         </h1>
+        <LoadingContainer />
         <div className={style.columnsWrapper}>
           <div className={style.column}>
             <Sentiment data={[{ value: 7.5 }]} />
